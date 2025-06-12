@@ -14,8 +14,8 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spark.version>2.9.3</spark.version>
-<!--        <slf4j.version>1.7.25</slf4j.version>-->
-<!--        <logback.version>1.4.14</logback.version>-->
+        <!--        <slf4j.version>1.7.25</slf4j.version>-->
+        <!--        <logback.version>1.4.14</logback.version>-->
         <gson.version>2.10.1</gson.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
     </properties>
@@ -47,21 +47,22 @@
             <artifactId>slf4j-nop</artifactId>
             <version>1.7.36</version>
         </dependency>
-<!--        &lt;!&ndash; SLF4J API &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-api</artifactId>-->
-<!--            <version>${slf4j.version}</version>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash; SLF4J API &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>slf4j-api</artifactId>-->
+        <!--            <version>${slf4j.version}</version>-->
+        <!--        </dependency>-->
 
-<!--        &lt;!&ndash; Logback implementation for SLF4J &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>ch.qos.logback</groupId>-->
-<!--            <artifactId>logback-classic</artifactId>-->
-<!--            <version>${logback.version}</version>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash; Logback implementation for SLF4J &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>ch.qos.logback</groupId>-->
+        <!--            <artifactId>logback-classic</artifactId>-->
+        <!--            <version>${logback.version}</version>-->
+        <!--        </dependency>-->
 
     </dependencies>
+
 
     <build>
         <plugins>
@@ -74,6 +75,18 @@
                     <target>${maven.compiler.target}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <!-- Shade plugin to build fat jar (optional, if you want one jar) -->
@@ -98,6 +111,8 @@
                     </execution>
                 </executions>
             </plugin>
+
+
 
         </plugins>
     </build>
